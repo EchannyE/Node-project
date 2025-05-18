@@ -39,39 +39,38 @@ Node.js is a powerful, open-source JavaScript runtime built on Chrome’s V8 Jav
 
 
 
-Basic API Server with Node.js and Express
+ Basic API Server with Node.js and Express
 
 This project demonstrates a simple RESTful API built with Node.js and Express. It supports multiple concurrent connections and provides endpoints for storing and retrieving messages, as well as simulating a slow response to test concurrency.
 
  Features
 
- GET /api/messages: Retrieve all messages.
- POST /api/messages: Add a new message.
- GET /api/slow: Simulate a slow endpoint (3-second delay) to test concurrent requests.
+- **GET `/api/messages`**: Retrieve all messages.
+- **POST `/api/messages`**: Add a new message.
+- **GET `/api/slow`**: Simulate a slow endpoint (3-second delay) to test concurrent requests.
 
  How It Works
 
- Uses an in-memory array (`messages`) to store messages.
- Handles JSON request bodies with `express.json()` middleware.
- Supports multiple clients making requests at the same time (Express is non-blocking).
+- Uses an in-memory array (`messages`) to store messages.
+- Handles JSON request bodies with `express.json()` middleware.
+- Supports multiple clients making requests at the same time (Express is non-blocking).
 
-              Endpoints
+ Endpoints
 
  1. Get All Messages
 
-Request:  
+**Request:**  
 `GET /api/messages`
 
-Response:  
+**Response:**  
 Returns an array of all messages.
 ```json
-
 []
 ```
 
  2. Add a New Message
 
-Request:  
+**Request:**  
 `POST /api/messages`  
 Body (JSON):
 ```json
@@ -81,15 +80,15 @@ Body (JSON):
 }
 ```
 
-Response:  
+**Response:**  
 Returns the created message with a timestamp.
 
  3. Simulate a Slow Response
 
-Request:  
+**Request:**  
 `GET /api/slow`
 
-Response:  
+**Response:**  
 Returns after 3 seconds:
 ```json
 {
@@ -99,19 +98,17 @@ Returns after 3 seconds:
 
  How to Run
 
-1. Install dependencies:
+1. **Install dependencies:**
    ```
    npm install express
    ```
-2. Start the server:
+2. **Start the server:**
    ```
    node basic-api.js
    ```
-3. Test the API:  
+3. **Test the API:**  
    Use [Thunder Client](https://www.thunderclient.com/) to make requests to `http://localhost:4000`.
-
-       Notes
+ Notes
 
 - This implementation uses in-memory storage, so messages are lost when the server restarts.
 - The `/api/slow` endpoint is useful for testing how the server handles multiple concurrent requests.
-
